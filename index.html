@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutri BakeShop | Customer</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #F7FBF8;
+            color: #173B25;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        /* HEADER */
+
+        header {
+            background: #FFFFFF;
+            border-bottom: 1px solid #DCFCE7;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .logo img {
+            width: 90px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .brand-name {
+            font-size: 22px;
+            font-weight: 700;
+        }
+
+        nav {
+            display: flex;
+            gap: 28px;
+            align-items: center;
+        }
+
+        nav > a {
+            text-decoration: none;
+            color: #4B6353;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        nav > a:hover {
+            color: #16A34A;
+        }
+
+
+        /* PROFILE MODULE */
+
+        .profile-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .profile-button {
+            width: 42px;
+            height: 42px;
+            border-radius: 50%;
+            border: 2px solid #DCFCE7;
+            background: #F7FBF8;
+            color: #16A34A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 17px;
+            font-weight: bold;
+            transition: 0.2s;
+            text-transform: uppercase;
+        }
+
+        .profile-button:hover {
+            background: #DCFCE7;
+            border-color: #16A34A;
+        }
+
+        .profile-menu {
+            display: none;
+            position: absolute;
+            top: 52px;
+            right: 0;
+            width: 190px;
+            background: #FFFFFF;
+            border: 1px solid #DCFCE7;
+            border-radius: 12px;
+            box-shadow: 0 5px 18px rgba(22, 163, 74, 0.12);
+            overflow: hidden;
+            z-index: 2000;
+        }
+
+        .profile-menu.show {
+            display: block;
+        }
+
+        .profile-menu a {
+            display: block;
+            padding: 13px 16px;
+            text-decoration: none;
+            color: #173B25;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.2s;
+        }
+
+        .profile-menu a:hover {
+            background: #DCFCE7;
+            color: #16A34A;
+        }
+
+
+        /* GENERAL */
+
+        .container {
+            width: 86%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        section {
+            padding: 75px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 12px;
+            font-size: 32px;
+        }
+
+        .section-description {
+            text-align: center;
+            color: #4B6353;
+            max-width: 680px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+        }
+
+
+        /* MAIN PAGE */
+
+        .mainpage {
+            min-height: 600px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #173B25,
+                    #16A34A
+                );
+
+            color: white;
+        }
+
+        .mainpage-content {
+            width: 86%;
+            max-width: 850px;
+            margin: auto;
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #DCFCE7;
+            color: #16A34A;
+            padding: 9px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            margin-bottom: 22px;
+        }
+
+        .mainpage h1 {
+            font-size: 58px;
+            line-height: 1.1;
+            margin-bottom: 22px;
+        }
+
+        .mainpage h1 span {
+            color: #DCFCE7;
+        }
+
+        .mainpage p {
+            color: #E8F5EB;
+            line-height: 1.8;
+            font-size: 17px;
+            max-width: 720px;
+            margin: 0 auto 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #16A34A;
+            color: white;
+            text-decoration: none;
+            padding: 13px 23px;
+            border-radius: 10px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+
+        .mainpage .btn {
+            background: #FFFFFF;
+            color: #16A34A;
+        }
+
+        .mainpage .btn:hover {
+            background: #DCFCE7;
+            opacity: 1;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .info-card {
+            background: #FFFFFF;
+            border: 1px solid #DCFCE7;
+            border-radius: 18px;
+            padding: 28px;
+            box-shadow: 0 5px 18px rgba(22, 163, 74, 0.06);
+            position: relative;
+            min-height: 230px;
+        }
+
+        .icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: #DCFCE7;
+            color: #16A34A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-bottom: 18px;
+        }
+
+        .info-card h3 {
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .info-card p {
+            color: #4B6353;
+            line-height: 1.7;
+        }
+
+
+        /* WHAT WE OFFER */
+
+        .offer {
+            background: #FFFFFF;
+        }
+
+        .offer-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px;
+        }
+
+        .offer-item {
+            padding: 25px;
+            border: 1px solid #DCFCE7;
+            border-radius: 16px;
+            min-height: 170px;
+        }
+
+        .offer-item h3 {
+            margin-bottom: 8px;
+        }
+
+        .offer-item p {
+            color: #4B6353;
+            line-height: 1.7;
+        }
+
+
+        /* BUSINESS INFO */
+
+        .business-box {
+            background: #FFFFFF;
+            border: 1px solid #DCFCE7;
+            border-radius: 20px;
+            padding: 35px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            align-items: start;
+        }
+
+        .business-detail {
+            border-left: 3px solid #16A34A;
+            padding-left: 16px;
+            min-height: 0;
+            height: auto;
+        }
+
+        .business-detail h3 {
+            margin-bottom: 8px;
+        }
+
+        .business-detail p {
+            color: #4B6353;
+            line-height: 1.6;
+            white-space: pre-line;
+            overflow-wrap: break-word;
+            margin: 0;
+        }
+
+
+        /* CTA */
+
+        .cta {
+            background: #DCFCE7;
+            text-align: center;
+            border-radius: 24px;
+            padding: 55px 30px;
+            margin-bottom: 75px;
+        }
+
+        .cta h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            color: #4B6353;
+            max-width: 650px;
+            margin: 0 auto 25px;
+            line-height: 1.7;
+        }
+
+
+        /* CUSTOMER MESSAGE */
+
+        .message-box {
+            background: #FFFFFF;
+            border: 1px solid #DCFCE7;
+            border-radius: 20px;
+            padding: 35px;
+            max-width: 700px;
+            margin: auto;
+            box-shadow: 0 5px 18px rgba(22, 163, 74, 0.06);
+        }
+
+        .message-group {
+            margin-bottom: 20px;
+        }
+
+        .message-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        .message-group textarea {
+            width: 100%;
+            padding: 13px;
+            border: 1px solid #CFE5D5;
+            border-radius: 10px;
+            font-size: 15px;
+            outline: none;
+            resize: vertical;
+        }
+
+        .message-group textarea:focus {
+            border-color: #16A34A;
+        }
+
+        .message-error {
+            color: #B91C1C;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .message-output {
+            display: none;
+            margin-top: 30px;
+            padding: 25px;
+            background: #F7FBF8;
+            border: 1px solid #DCFCE7;
+            border-radius: 16px;
+        }
+
+        .message-output h3 {
+            margin-bottom: 15px;
+            color: #16A34A;
+        }
+
+        .message-item {
+            background: #FFFFFF;
+            border: 1px solid #DCFCE7;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 15px;
+        }
+
+        .message-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .message-item p {
+            color: #4B6353;
+            line-height: 1.7;
+            margin-bottom: 5px;
+        }
+
+        .message-date {
+            color: #16A34A;
+            font-size: 13px;
+            margin-top: 15px;
+            text-align: right;
+        }
+
+
+        /* FOOTER */
+
+        footer {
+            background: #173B25;
+            color: white;
+            padding: 35px 7%;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .footer-content p {
+            color: #D5E4D9;
+            font-size: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .footer-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+
+        /* RESPONSIVE */
+
+        @media (max-width: 850px) {
+
+            .about-grid,
+            .offer-grid,
+            .business-box {
+                grid-template-columns: 1fr;
+            }
+
+            .mainpage h1 {
+                font-size: 45px;
+            }
+
+            .mainpage {
+                padding-top: 50px;
+            }
+
+            nav {
+                gap: 14px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+
+        @media (max-width: 600px) {
+
+            header {
+                padding: 15px 5%;
+            }
+
+            nav > a {
+                font-size: 13px;
+            }
+
+            .brand-name {
+                font-size: 18px;
+            }
+
+            .container {
+                width: 90%;
+            }
+
+            .profile-button {
+                width: 38px;
+                height: 38px;
+                font-size: 16px;
+            }
+
+            .mainpage-content {
+                width: 90%;
+            }
+
+            .mainpage h1 {
+                font-size: 38px;
+            }
+
+            .mainpage p {
+                font-size: 15px;
+            }
+
+            .tag {
+                font-size: 11px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo-area">
+
+            <div class="logo">
+
+                <img src="NutriLogo.png">
+
+            </div>
+
+            <div class="brand-name">
+                Nutri BakeShop
+            </div>
+
+        </div>
+
+
+        <nav>
+
+            <a href="customer.html">
+                Home
+            </a>
+
+            <a href="customerMenu.html">
+                Menu
+            </a>
+
+            <a href="customerProfile.html">
+                Profile Information
+            </a>
+
+            <a href="orderHistory.html">
+                Order History
+            </a>
+
+
+            <!-- PROFILE -->
+
+            <div class="profile-container">
+
+                <button
+                    type="button"
+                    class="profile-button"
+                    onclick="toggleProfileMenu()">
+
+                    <span id="profileInitial">
+                        U
+                    </span>
+
+                </button>
+
+                <div
+                    id="profileMenu"
+                    class="profile-menu">
+
+                    <a href="customerProfile.html">
+                        Profile Information
+                    </a>
+
+                    <a href="orderHistory.html">
+                        Order History
+                    </a>
+
+                    <a href="login.html" onclick="return true;">
+                        Logout
+                    </a>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!-- MAIN PAGE -->
+
+    <section class="mainpage" id="home">
+
+        <div class="mainpage-content">
+
+            <div class="tag">
+                WELCOME TO NUTRI BAKESHOP
+            </div>
+
+            <h1>
+                Fresh Bakes Made for <span>You.</span>
+            </h1>
+
+            <p>
+                Nutri BakeShop is a bakery business that offers freshly made
+                baked products for customers who are looking for delicious
+                and satisfying food. We aim to provide quality products
+                and a pleasant experience for every customer.
+            </p>
+
+            <a href="#about" class="btn">
+                Learn More
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ABOUT BUSINESS -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                About Our Business
+            </h2>
+
+            <p class="section-description">
+                Get to know Nutri BakeShop and what the business provides
+                to its customers.
+            </p>
+
+
+            <div class="about-grid">
+
+
+                <div class="info-card">
+
+                    <div class="icon">
+                        01
+                    </div>
+
+                    <h3>
+                        Who We Are
+                    </h3>
+
+                    <p>
+                        Nutri BakeShop is a local bakery business focused on
+                        providing freshly prepared baked products and a
+                        welcoming experience for customers.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <div class="icon">
+                        02
+                    </div>
+
+                    <h3>
+                        What We Offer
+                    </h3>
+
+                    <p>
+                        We offer different baked products that customers can
+                        enjoy for snacks, meals, celebrations, or everyday
+                        cravings.
+                    </p>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <div class="icon">
+                        03
+                    </div>
+
+                    <h3>
+                        Our Goal
+                    </h3>
+
+                    <p>
+                        Our goal is to serve quality baked products while
+                        providing friendly service and a good experience
+                        for our customers.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- WHAT WE OFFER -->
+
+    <section class="offer" id="offer">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                What We Offer
+            </h2>
+
+            <p class="section-description">
+                Explore the products and services available from Nutri BakeShop.
+            </p>
+
+
+            <div class="offer-grid">
+
+
+                <div class="offer-item">
+
+                    <h3>
+                        Freshly Baked Products
+                    </h3>
+
+                    <p>
+                        A selection of baked products prepared for customers
+                        to enjoy.
+                    </p>
+
+                </div>
+
+
+                <div class="offer-item">
+
+                    <h3>
+                        Quality Ingredients
+                    </h3>
+
+                    <p>
+                        Products are prepared with carefully selected
+                        ingredients based on the business's food preparation.
+                    </p>
+
+                </div>
+
+
+                <div class="offer-item">
+
+                    <h3>
+                        Customer Service
+                    </h3>
+
+                    <p>
+                        Friendly and convenient service to help customers
+                        with their orders and inquiries.
+                    </p>
+
+                </div>
+
+
+                <div class="offer-item">
+
+                    <h3>
+                        Customer Orders
+                    </h3>
+
+                    <p>
+                        Customers can inquire about available products,
+                        orders, and other information provided by the store.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- BUSINESS INFORMATION -->
+
+    <section id="information">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Business Information
+            </h2>
+
+
+            <div class="business-box">
+
+
+                <div class="business-detail">
+
+                    <h3>
+                        Location
+                    </h3>
+
+                    <p>
+                        356 Purok 6 Malipampang San Ildelfonso, Bulacan
+                    </p>
+
+                </div>
+
+
+                <div class="business-detail">
+
+                    <h3>
+                        Contact
+                    </h3>
+
+                    <p>
+                        Contact Number: 0931 178 6148
+                        Email Address: nutribakeshop@yahoo.com
+                    </p>
+
+                </div>
+
+
+                <div class="business-detail">
+
+                    <h3>
+                        Business Hours
+                    </h3>
+
+                    <p>
+                        Monday - Saturday
+                        Opening Time: 8:00am
+                        Closing Time: 6:00pm
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- CTA -->
+
+    <div class="container">
+
+        <div class="cta">
+
+            <h2>
+                Visit Nutri BakeShop Menu
+            </h2>
+
+            <p>
+                Discover what Nutri BakeShop has to offer and learn more
+                about our products.
+            </p>
+
+            <a href="customerMenu.html" class="btn">
+                View Menu
+            </a>
+
+        </div>
+
+    </div>
+
+
+    <!-- MESSAGE -->
+
+    <section id="message">
+
+        <div class="container">
+
+            <h2 class="section-title">
+                Messages
+            </h2>
+
+            <p class="section-description">
+                Send a message to Nutri BakeShop for inquiries and other concerns.
+            </p>
+
+
+            <div class="message-box">
+
+
+                <div class="message-group">
+
+                    <label for="customerMessage">
+                        Message
+                    </label>
+
+                    <textarea
+                        id="customerMessage"
+                        rows="5"
+                        placeholder="Write your message here..."></textarea>
+
+                </div>
+
+
+                <button
+                    type="button"
+                    class="btn"
+                    onclick="sendCustomerMessage()">
+
+                    Send Message
+
+                </button>
+
+
+                <div
+                    id="messageError"
+                    class="message-error">
+                </div>
+
+
+                <div
+                    id="messageOutput"
+                    class="message-output">
+
+                    <h3>
+                        Messages
+                    </h3>
+
+                    <div id="messageList"></div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <div>
+
+                <strong>
+                    Nutri BakeShop
+                </strong>
+
+                <p>
+                    Fresh bakes and quality service for our customers.
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+                <a href="#home">
+                    Home
+                </a>
+
+                <a href="#about">
+                    About
+                </a>
+
+                <a href="#offer">
+                    Offers
+                </a>
+
+                <a href="#information">
+                    Contact
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+
+        /* USERNAME */
+
+        var username = "User";
+
+
+        /* ABOUT ARRAYS */
+
+        var aboutTitles = [
+            "Who We Are",
+            "What We Offer",
+            "Our Goal"
+        ];
+
+
+        var aboutTexts = [
+            "Nutri BakeShop is a local bakery business focused on providing freshly prepared baked products and a welcoming experience for customers.",
+            "We offer different baked products that customers can enjoy for snacks, meals, celebrations, or everyday cravings.",
+            "Our goal is to serve quality baked products while providing friendly service and a good experience for our customers."
+        ];
+
+
+        /* OFFER ARRAYS */
+
+        var offerTitles = [
+            "Freshly Baked Products",
+            "Quality Ingredients",
+            "Customer Service",
+            "Customer Orders"
+        ];
+
+
+        var offerTexts = [
+            "A selection of baked products prepared for customers to enjoy.",
+            "Products are prepared with carefully selected ingredients based on the business's food preparation.",
+            "Friendly and convenient service to help customers with their orders and inquiries.",
+            "Customers can inquire about available products, orders, and other information provided by the store."
+        ];
+
+
+
+        /* BUSINESS ARRAY */
+
+        var businessTexts = [
+            "356 Purok 6 Malipampang San Ildelfonso, Bulacan",
+            "Contact Number: 0931 178 6148\nEmail Address: nutribakeshop@yahoo.com",
+            "Monday - Saturday\nOpening Time: 8:00am\nClosing Time: 6:00pm"
+        ];
+
+
+        /* CUSTOMER MESSAGES */
+
+        var customerMessages = [];
+
+
+        /* CLASS FUNCTIONS */
+
+        function addClass(element, className) {
+
+            var currentClasses =
+                element.className;
+
+            var classExists = false;
+
+            var currentClass = "";
+
+            var i = 0;
+
+
+            while (i <= currentClasses.length) {
+
+                if (
+                    i == currentClasses.length ||
+                    currentClasses[i] == " "
+                ) {
+
+                    if (currentClass == className) {
+
+                        classExists = true;
+
+                        break;
+
+                    }
+
+                    currentClass = "";
+
+                }
+
+                else {
+
+                    currentClass =
+                        currentClass +
+                        currentClasses[i];
+
+                }
+
+                i++;
+
+            }
+
+
+            if (classExists == false) {
+
+                if (currentClasses != "") {
+
+                    element.className =
+                        currentClasses +
+                        " " +
+                        className;
+
+                }
+
+                else {
+
+                    element.className =
+                        className;
+
+                }
+
+            }
+
+        }
+
+
+        function removeClass(element, className) {
+
+            var currentClasses =
+                element.className;
+
+            var newClasses = "";
+
+            var currentClass = "";
+
+            var i = 0;
+
+
+            while (i <= currentClasses.length) {
+
+                if (
+                    i == currentClasses.length ||
+                    currentClasses[i] == " "
+                ) {
+
+                    if (currentClass != className) {
+
+                        if (currentClass != "") {
+
+                            if (newClasses != "") {
+
+                                newClasses =
+                                    newClasses +
+                                    " " +
+                                    currentClass;
+
+                            }
+
+                            else {
+
+                                newClasses =
+                                    currentClass;
+
+                            }
+
+                        }
+
+                    }
+
+                    currentClass = "";
+
+                }
+
+                else {
+
+                    currentClass =
+                        currentClass +
+                        currentClasses[i];
+
+                }
+
+                i++;
+
+            }
+
+
+            element.className =
+                newClasses;
+
+        }
+
+
+        function toggleClass(element, className) {
+
+            var currentClasses =
+                element.className;
+
+            var classExists = false;
+
+            var currentClass = "";
+
+            var i = 0;
+
+
+            while (i <= currentClasses.length) {
+
+                if (
+                    i == currentClasses.length ||
+                    currentClasses[i] == " "
+                ) {
+
+                    if (currentClass == className) {
+
+                        classExists = true;
+
+                        break;
+
+                    }
+
+                    currentClass = "";
+
+                }
+
+                else {
+
+                    currentClass =
+                        currentClass +
+                        currentClasses[i];
+
+                }
+
+                i++;
+
+            }
+
+
+            if (classExists == true) {
+
+                removeClass(
+                    element,
+                    className
+                );
+
+            }
+
+            else {
+
+                addClass(
+                    element,
+                    className
+                );
+
+            }
+
+        }
+
+
+        /* SHOW FIRST LETTER OF USERNAME */
+
+        function displayProfileInitial() {
+
+            var profileInitial =
+                document.getElementById("profileInitial");
+
+
+            if (username != null && username != "") {
+
+                profileInitial.innerHTML =
+                    username[0];
+
+            }
+
+            else {
+
+                profileInitial.innerHTML =
+                    "U";
+
+            }
+
+        }
+
+
+        /* PROFILE MENU */
+
+        function toggleProfileMenu() {
+
+            var profileMenu =
+                document.getElementById("profileMenu");
+
+
+            toggleClass(
+                profileMenu,
+                "show"
+            );
+
+        }
+
+
+        /* SEND CUSTOMER MESSAGE */
+
+        function sendCustomerMessage() {
+
+            var customerMessage =
+                document.getElementById("customerMessage").value;
+
+
+            var messageError =
+                document.getElementById("messageError");
+
+
+            messageError.innerHTML =
+                "";
+
+
+            if (customerMessage == "") {
+
+                messageError.innerHTML =
+                    "Please enter your message.";
+
+                return;
+
+            }
+
+
+            var hasContent = false;
+
+            var i = 0;
+
+
+            while (i < customerMessage.length) {
+
+                if (
+                    customerMessage[i] != " " &&
+                    customerMessage[i] != "\n" &&
+                    customerMessage[i] != "\t" &&
+                    customerMessage[i] != "\r"
+                ) {
+
+                    hasContent = true;
+
+                    break;
+
+                }
+
+                i++;
+
+            }
+
+
+            if (hasContent == false) {
+
+                messageError.innerHTML =
+                    "Please enter your message.";
+
+                return;
+
+            }
+
+
+            var newMessage = {
+
+                name: username,
+
+                message: customerMessage
+
+            };
+
+
+            customerMessages[customerMessages.length] =
+                newMessage;
+
+
+            document.getElementById("customerMessage").value =
+                "";
+
+
+            displayCustomerMessages();
+
+        }
+
+
+        /* DISPLAY CUSTOMER MESSAGES */
+
+        function displayCustomerMessages() {
+
+            var messageList =
+                document.getElementById("messageList");
+
+
+            var messageOutput =
+                document.getElementById("messageOutput");
+
+
+            messageList.innerHTML =
+                "";
+
+
+            var i = 0;
+
+
+            while (i < customerMessages.length) {
+
+                var messageHTML =
+                    "";
+
+
+                messageHTML +=
+                    "<div class='message-item'>";
+
+
+                messageHTML +=
+                    "<p><strong>Name:</strong> " +
+                    customerMessages[i].name +
+                    "</p>";
+
+
+                messageHTML +=
+                    "<p><strong>Message:</strong> " +
+                    customerMessages[i].message +
+                    "</p>";
+
+
+                messageHTML +=
+                    "</div>";
+
+
+                messageList.innerHTML +=
+                    messageHTML;
+
+
+                i++;
+
+            }
+
+
+            if (customerMessages.length > 0) {
+
+                messageOutput.style.display =
+                    "block";
+
+            }
+
+        }
+
+
+        /* RUN PROFILE INITIAL */
+
+        displayProfileInitial();
+
+    </script>
+
+</body>
+</html>
